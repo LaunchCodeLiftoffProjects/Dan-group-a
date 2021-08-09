@@ -22,5 +22,6 @@ a social consciousness and would like some opinions on their style related choic
 - Bootstrap
 
 ## What I'll Have to Learn
+- Stretch Goal: Upload pictures functionality
 - Javascript DOM events to make user interactions more exciting
 - Stretch Goal: React Front End
