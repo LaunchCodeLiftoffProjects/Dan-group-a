@@ -12,4 +12,10 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/explore")
+    public String explore() {
+
+        return "explore";
+    }
+
 }
