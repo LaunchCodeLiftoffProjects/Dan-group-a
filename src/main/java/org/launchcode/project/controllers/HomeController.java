@@ -18,4 +18,11 @@ public class HomeController {
         return "explore";
     }
 
+    @GetMapping("/Home")
+    public String Home(){
+
+        return "Home";
+
+    }
+
 }
