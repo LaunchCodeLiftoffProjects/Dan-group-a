@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Style Your Event</title>
+</head>
+<body>
+<h1>Style Your Event</h1>
+<div>
+    <h3>Let's get you styled!</h3>
+</div>
+<div class="StyleYourEvent" align="center">
+    <h2>1. What type of event is it?</h2>
+    <button>Job Interview</button>
+    <button>Wedding</button>
+    <button>Family Dinner</button>
+    <button>Birthday Party</button>
+    <button>Date</button>
+</div>
+<div class="Outfit" align="center">
+    <h2>1. What type of outfit?</h2>
+    <button>Dress</button>
+    <button>Suit</button>
+    <button>Jacket</button>
+    <button>Shoes</button>
+    <button>Jewelry</button>
+</div>
+<div class="Personalize" align="center">
+    <h2>3. Add your own tags for more description?</h2>
+    <h2>Examples:</h2>
+    <button>Family Day at the Science Center</button>
+    <button>Do These Shoes Go With This Suit</button>
+    <button>Date STL in July at the Zoo</button>
+</div>
+<img th:src="@{/images/catbutton.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
+<button>POST</button>
+
+</body>
+</html>
