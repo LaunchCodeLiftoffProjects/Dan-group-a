@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
 <!--    unable to make css work-->
-    <link href="../static/styles.css" rel="stylesheet" />
+    <link th:href="@{static/styles.css}" rel="stylesheet" />
     <title>Explore</title>
 </head>
 <body>
-<img th:src="@{/images/suit.png}" />
+<!--unable to make images work-->
+<img th:src="@{images/suit.jpg}">
 <h1>Explore</h1>
 <div>
     <h3>Add tags below to explore by</h3>
