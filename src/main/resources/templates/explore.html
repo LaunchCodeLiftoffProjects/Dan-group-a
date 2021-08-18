@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
 <!--    unable to make css work-->
-    <link th:href="@{static/styles.css}" rel="stylesheet" />
+    <link th:href="@{styles.css}" rel="stylesheet" />
     <title>Explore</title>
 </head>
 <body>
-<!--unable to make images work-->
-<img th:src="@{images/suit.jpg}">
+
 <h1>Explore</h1>
 <div>
     <h3>Add tags below to explore by</h3>
@@ -32,7 +31,7 @@
 
 </div>
 <div class="post">
-    <div style="border: 5px dashed blue; border-radius: 5px; width: 400px; height: 400px;">Post goes here</div>
+    <img th:src="@{/images/suit.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
     <span>
         <p style="font-size:48px">Needs work: <span style="font-size: 48px; color: red;">2</span></p>
         <p style="font-size:24px">Looks good: <span style="font-size: 24px; color: green;">1</span></p>
@@ -40,12 +39,13 @@
     </span>
 </div>
     <h2>Comments</h2>
+    <div class="comments">
     <table style="background-color:aquamarine; border: 3px solid green; border-radius: 5px;">
         <tr>
             <td>Username: Walrusboy4Life </td>
         </tr>
         <tr>
-            <td>Rating: Rating: <span style="color: green; font-weight: bold;">Looks good</span></td>
+            <td>Rating: <span style="color: green; font-weight: bold;">Looks good</span></td>
         </tr>
         <tr style="background-color: white;">
             <td style="column-width: 400px;">I feel like it really needs more walruses, but it is cute anyway!</td>
@@ -53,13 +53,13 @@
     </table>
     <table style="background-color:aquamarine; border: 3px solid red; border-radius: 5px;">
         <tr>
-            <td style="column-width: 100px;">Username: LoftyGurl81</td>
+            <td>Username: LoftyGurl81</td>
         </tr>
         <tr>
-            <td>Rating: Rating: <span style="color: red; font-weight: bold;">Needs Work</span></td>
+            <td>Rating: <span style="color: red; font-weight: bold;">Needs Work</span></td>
         </tr>
         <tr style="background-color: white;">
-            <td style="column-width: 400px;">A yellow top with those shorts is not going to fly</td>
+            <td style="column-width: 400px;">A sweater top with those ripped jeans is not going to fly</td>
         </tr>
     </table>
     <table style="background-color:aquamarine; border: 3px solid red; border-radius: 5px;">
@@ -73,6 +73,6 @@
             <td style="column-width: 400px;">No... Just. No.</td>
         </tr>
     </table>
-<!--    <img src="../images/suit.jpg" alt="user post">-->
+    </div>
 </body>
 </html>
