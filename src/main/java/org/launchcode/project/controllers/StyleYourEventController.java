@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class StyleYourEventController {
 
-    @GetMapping("/styleYourEvent")
+    @GetMapping("/styleyourevent")
     public String StyleYourEvent(){
 
-        return "styleYourEvent";
+        return "styleyourevent";
     }
 
 
