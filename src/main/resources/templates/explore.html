@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+<!--    unable to make css work-->
+    <link th:href="@{styles.css}" rel="stylesheet" />
     <title>Explore</title>
 </head>
 <body>
+
 <h1>Explore</h1>
 <div>
     <h3>Add tags below to explore by</h3>
@@ -21,6 +26,56 @@
     <button>Searchable tag</button>
     <button>Searchable tag</button>
 </div>
-    <img src="file:///C:/Users/bri39/desktop/LiftOff/liftoff-group/StyleStorm/src/main/resources/templates/suit.jpg"/>
+
+<div class="post-nav" style="padding:10px;">
+    <button value="looksgood" style="background-color:green; padding: 5px;">Looks Good</button>
+    <button value="needswork" style="background-color: red; padding: 5px;">Needs Work</button>
+    <button value="skip" style="background-color:yellow; padding: 5px;">Skip this post</button>
+
+</div>
+<div class="post">
+    <img th:src="@{/images/suit.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
+    <span>
+        <p style="font-size:48px">Needs work: <span style="font-size: 48px; color: red;">2</span></p>
+        <p style="font-size:24px">Looks good: <span style="font-size: 24px; color: green;">1</span></p>
+
+    </span>
+</div>
+    <h2>Comments</h2>
+    <div class="comments">
+    <table style="background-color:aquamarine; border: 3px solid green; border-radius: 5px;">
+        <tr>
+            <td>Username: Walrusboy4Life </td>
+        </tr>
+        <tr>
+            <td>Rating: <span style="color: green; font-weight: bold;">Looks good</span></td>
+        </tr>
+        <tr style="background-color: white;">
+            <td style="column-width: 400px;">I feel like it really needs more walruses, but it is cute anyway!</td>
+        </tr>
+    </table>
+    <table style="background-color:aquamarine; border: 3px solid red; border-radius: 5px;">
+        <tr>
+            <td>Username: LoftyGurl81</td>
+        </tr>
+        <tr>
+            <td>Rating: <span style="color: red; font-weight: bold;">Needs Work</span></td>
+        </tr>
+        <tr style="background-color: white;">
+            <td style="column-width: 400px;">A sweater top with those ripped jeans is not going to fly</td>
+        </tr>
+    </table>
+    <table style="background-color:aquamarine; border: 3px solid red; border-radius: 5px;">
+        <tr>
+            <td>Username: StyleLord 7</td>
+        </tr>
+        <tr>
+            <td>Rating: <span style="color: red; font-weight: bold;">Needs Work</span></td>
+        </tr>
+        <tr style="background-color: white;">
+            <td style="column-width: 400px;">No... Just. No.</td>
+        </tr>
+    </table>
+    </div>
 </body>
 </html>
