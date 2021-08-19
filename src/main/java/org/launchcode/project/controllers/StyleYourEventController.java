@@ -8,7 +8,7 @@ public class StyleYourEventController {
     @GetMapping("/styleyourevent")
     public String StyleYourEvent(){
 
-        return "styleyourevent";
+        return "/styleyourevent";
     }
 
 
