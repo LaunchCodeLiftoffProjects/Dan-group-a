@@ -226,7 +226,7 @@ th {
     page-break-inside: avoid;
   }
   img {
-    max-width: 100% !important;
+    max-width: 90% !important;
   }
   p,
   h2,
@@ -1121,7 +1121,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 .img-rounded {
@@ -1129,7 +1129,7 @@ img {
 }
 .img-thumbnail {
   display: inline-block;
-  max-width: 100%;
+  max-width: 900%;
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
