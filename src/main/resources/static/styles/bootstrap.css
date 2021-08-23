@@ -4,6 +4,29 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.div class="tagArea" {
+    style="background-color: green;"
+}
+
+.div class="logo"{
+        width: 102px;
+        height: 45px;
+        padding: 20px;
+        background: url("images/stylestormlogo.png") no-repeat;
+        border : none;
+}
+h1 {
+    size: 200px;
+    }
+h2 {
+   size: 200px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.post {
+   size: 200px;
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -12,6 +35,8 @@ html {
 body {
   margin: 0;
 }
+
+
 article,
 aside,
 details,
