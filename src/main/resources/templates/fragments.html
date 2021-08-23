@@ -11,9 +11,8 @@
   <title th:text="'StyleStorm' + ${title == null ? '' : ' :: ' + title}">StyleStorm</title>
 </head>
 
-<body>
 
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+<div th:fragment="page-header" class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">
     <style>
@@ -28,7 +27,7 @@
         background: url("images/stylestormlogohover.png") no-repeat;
     }
 </style>
-      <div class="logo"></div>
+      <div th:href="@{/}" class="logo"></div>
 
     </div>
     <div class="navbar-collapse collapse">
@@ -38,6 +37,5 @@
         <li><a th:href="@{/styleyourevent}">Style Your Event</a></li>
       </ul>
     </div>
-    <div>
-      <img th:href="@{/images/record.mp4}">
   </div>
+</div>
