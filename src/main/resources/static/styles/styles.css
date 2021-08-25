@@ -2,12 +2,20 @@
     style="background-color: green;"
 }
 
+button {
+radius: 5px;
+}
+
 h1 {
     size: 200px;
     }
 h2 {
    size: 200px;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.indent{
+margin-left: 20px;
 }
 
 
