@@ -2,9 +2,19 @@
     style="background-color: green;"
 }
 
+
+.div class="logo"{
+        width: 102px;
+        height: 45px;
+        padding: 20px;
+        background: url("images/stylestormlogo.png") no-repeat;
+        border : none;
+}
+
 button {
 radius: 5px;
 }
+
 
 h1 {
     size: 200px;

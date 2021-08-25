@@ -2,6 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <div th:replace="fragments :: page-header"></div>
+
+<body class="body">
+<div>
+    <title>Welcome to StyleStorm</title>
+    <h1>Welcome to StyleStorm</h1>
+
 <link th:href="@{/styles/styles.css}" rel="stylesheet" />
 <body class="body">
 <div class="indent">
@@ -18,6 +24,7 @@
     <button class="login">Login</button>
     <h2>Don't have an account?</h2>
     <button class="login">Register</button>
+
 </div>
 
 </body>
