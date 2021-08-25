@@ -1,7 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<
 <head th:replace="fragments :: head"></head>
 <body class="container">
+
+<head th:replace="fragments :: head">
+
+
+<div th:replace="fragments :: page-header"></div>
+</head>
+<body>
+<div class="container body-content">
+    <title>Style Your Event</title>
+
+<h1>Style Your Event</h1>
+<div>
+    <h3>Let's get you styled!</h3>
+</div>
+<div class="StyleYourEvent" align="center">
+    <h2>1. What type of event is it?</h2>
+    <button>Job Interview</button>
+    <button>Wedding</button>
+    <button>Family Dinner</button>
+    <button>Birthday Party</button>
+    <button>Date</button>
+</div>
+<div class="Outfit" align="center">
+    <h2>1. What type of outfit?</h2>
+    <button>Dress</button>
+    <button>Suit</button>
+    <button>Jacket</button>
+    <button>Shoes</button>
+    <button>Jewelry</button>
+</div>
+<div class="Personalize" align="center">
+    <h2>3. Add your own tags for more description?</h2>
+    <h2>Examples:</h2>
+    <button>Family Day at the Science Center</button>
+    <button>Do These Shoes Go With This Suit</button>
+    <button>Date STL in July at the Zoo</button>
+</div>
+<img th:src="@{/images/outfitwithhandbag.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
+<button type="submit"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>
+
 
 <nav th:replace="fragments :: page-header"></nav>
    <p><h1>Lets get you styled!</h1></p>
