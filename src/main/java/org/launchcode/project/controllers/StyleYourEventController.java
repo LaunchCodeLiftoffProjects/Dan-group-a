@@ -25,7 +25,7 @@ public class StyleYourEventController {
     public String processPostEventForm(@ModelAttribute @Valid Post newPost, Error errors, Model model){
 
         if(errors.hasErrors()){
-            model.addAttribute("title","Create Post")
+            model.addAttribute("title","Create Post");
             return "styleyourevent";
         }
 
