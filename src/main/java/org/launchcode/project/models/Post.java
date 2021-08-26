@@ -1,23 +1,19 @@
 package org.launchcode.project.models;
+import org.launchcode.project.models.Tag;
 
 public class Post {
 
-    private String event;
+    private Tag tag;
 
-    public Post(String event){
-        this.event = event;
+    public Post() {
+        this.tag = tag;
     }
 
-    public String getEvent() {
-        return event;
+    public String addTag(Tag tag){
+        this.tag=tag;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
-    }
-
-    @Override
-    public String toString() {
-        return event;
+    public Tag getTag() {
+        return tag;
     }
 }
