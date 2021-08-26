@@ -1,5 +1,7 @@
 package org.launchcode.project.controllers;
+import org.launchcode.project.data.PostRepository;
 import org.launchcode.project.models.Post;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ public class StyleYourEventController {
 
     private static List<Post> posts = new ArrayList<>();
 
+    @Autowired
+    private PostRepository postRepository;
+
     @GetMapping("styleyourevent")
     public String StyleYourEvent(){
 
@@ -22,15 +27,11 @@ public class StyleYourEventController {
     }
 
     @PostMapping("styleyourevent")
-    public String processPostEventForm(@ModelAttribute @Valid Post newPost, Error errors, Model model){
+    public String processPostEventForm(@ModelAttribute Post newPost, Model model){
 
-        if(errors.hasErrors()){
             model.addAttribute("title","Create Post");
-            return "styleyourevent";
-        }
-
-        stylestormRepository.save(postEvent);
-        return "redirect:";
+            PostRepository.save(newPost);
+            return "redirect:";
     }
 
 
