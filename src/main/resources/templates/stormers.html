@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
     <meta charset="UTF-8">
     <title>Stormers</title>
 
-    <link th:href="@{/styles/stormers.css}" rel="stylesheet" />
-<!--    <link rel="stylesheet" type="text/css" href ="stormers.css">-->
+    <link rel="stylesheet" th:href="@{/styles/stormer.css}" />
+
+ <style>
+ h2 {
+    color: pink;
+    }
+</style>
+
     <div th:replace="fragments :: page-header"></div>
 </head>
 <body>
     <h1 style="text-align: center;">Stormers</h1>
+    <div>
+        <form style="text-align: right;">
+            <input type="search" name="search" placeholder="Type to search">
+            <button>Search</button>
+        </form>
+    </div>
     <div class="leftside">
        <h3>Stormers You Follow</h3><br>
         <h3>Your Favorite Stormers</h3>
     </div>
 
-    <div>
-        <h2 class="h2-posts" style="text-align: center;">Most recent posts!</h2>
+    <div style="padding-bottom: 50px;">
+        <h2 style="text-align: center;">Most recent posts!</h2>
     </div>
 
     <div>
-        <h2 class="h2-stylestorming">See How Other Stormers Are Stylestorming!</h2>
+        <h2 style="text-align: center;">See How Other Stormers Are Stylestorming!</h2>
     </div>
 </body>
 </html>
