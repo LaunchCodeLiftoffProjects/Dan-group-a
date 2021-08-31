@@ -20,10 +20,13 @@ import java.util.List;
 @RequestMapping("styleyourevent")
 public class StyleYourEventController {
 
-//    private static List<Post> posts = new ArrayList<>();
-
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private TagRepository tagRepository;
+
+    private static List<Post> posts = new ArrayList<>();
 
     @Autowired
     private TagRepository tagRepository;
@@ -46,15 +49,7 @@ public class StyleYourEventController {
         return "/styleyourevent/styleyourevent";
     }
 
-    @GetMapping("post")
-    public String displayCreatePostForm(Model model){
-        model.addAttribute("title", "Create Post");
-        model.addAttribute(new Post());
-        model.addAttribute("tags", tagRepository.findAll());
-        return "styleyourevent/post";
-    }
-
-    @PostMapping("post")
+    @PostMapping("styleyourevent")
     public String processPostEventForm(@ModelAttribute @Valid Post newPost, Errors errors, Model model){
 
         if(errors.hasErrors()){
