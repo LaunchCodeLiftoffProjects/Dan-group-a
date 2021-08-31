@@ -43,11 +43,11 @@ public class StyleYourEventController {
                 model.addAttribute("posts", tag.getPosts());
             }
         }
-        return "styleyourevent";
+        return "/styleyourevent/styleyourevent";
     }
 
     @GetMapping("post")
-    public String displayCreateEventForm(Model model){
+    public String displayCreatePostForm(Model model){
         model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
         model.addAttribute("tags", tagRepository.findAll());

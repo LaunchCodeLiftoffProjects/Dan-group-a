@@ -1,5 +1,9 @@
 package org.launchcode.project.models;
 
+
+
+import org.launchcode.project.data.TagRepository;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,7 +21,6 @@ public class Post extends AbstractEntity {
     @Size(max=500, message = "Type of Event too long!")
     private String typeOfEvent;
 
-    @OneToOne(cascade = CascadeType.ALL)
     @Valid
     @NotNull
     private PostDetails postDetails;

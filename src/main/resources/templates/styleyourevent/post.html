@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container  body-content">
-<h1>Add Post</h1>
+<body class="container">
 
-<nav th:replace="fragments :: page-header"></nav>
+<header th:replace="fragments :: header"></header>
 
-<form method="post" style="max-width:600px;">
+<form method="post" >
     <div class="form-group">
-        <label th:for="post">Employer Name</label>
-        <input class="form-control" th:field="${employer.name}" />
+        <label>Post
+            <input th:field="${post.typeofevent}" class=""form-control">
         <span th:errors="${post.eveny}" class="error"></span>
     </div>
 
