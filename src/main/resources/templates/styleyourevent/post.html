@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-<body class="container">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
 
-<header th:replace="fragments :: header"></header>
-
-<form method="post" >
-    <div class="form-group">
-        <label>Post
-            <input th:field="${post.typeofevent}" class=""form-control">
-        <span th:errors="${post.eveny}" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label th:for="location">Employer Location</label>
-        <input class="form-control" th:field="${post.outfit}" />
-        <span th:errors="${post.outfit}" class="error"></span>
-    </div>
-
+</body>
+</html>
