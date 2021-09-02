@@ -1,49 +1,44 @@
 package org.launchcode.project.models;
+import org.launchcode.project.models.Tag;
 
-
-
-import org.launchcode.project.data.TagRepository;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Post extends AbstractEntity {
 
-    @Size(max=500, message = "Type of Event too long!")
-    private String typeOfEvent;
 
-    @Valid
-    @NotNull
-    private PostDetails postDetails;
+    private String name;
+
+    @ManyToMany
+    private final List<Tag> tags = new ArrayList<>();
 
     @ManyToOne
-    @NotNull(message="Tag is required")
-    private Tag tag;
-
-    public Post(String typeOfEvent, PostDetails postDetails) {
-        this.typeOfEvent = typeOfEvent;
-        this.postDetails = postDetails;
-    }
+//    @JoinColumn(name="user", nullable=false)
+    private User user;
 
     public Post(){}
 
-    public String getTypeOfEvent(){return typeOfEvent;}
+    public Post(String name){
+        this.name=name;
+    }
 
-    public void setTypeOfEvent(String typeOfEvent){ this.typeOfEvent = typeOfEvent;}
+    public void addTag(Tag tag){
+        tags.add(tag);
+    }
 
-    public PostDetails getPostDetails(){ return postDetails;}
+    public String getName() {
+        return name;
+    }
 
-    public void setPostDetails(PostDetails postDetails){ this.postDetails = postDetails;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    @Override
-    public String toString(){ return typeOfEvent;}
+    public List<Tag> getTags(){
+        return tags;
+    }
+
+
 }
