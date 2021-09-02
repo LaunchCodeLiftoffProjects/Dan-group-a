@@ -27,9 +27,8 @@ public class StyleYourEventController {
     private PostRepository postRepository;
 
     @GetMapping("styleyourevent")
-    public String displayStyleYourEventForm(Model model){
+    public String displayExistingTags(Model model){
         model.addAttribute("title", "Create Post");
-        model.addAttribute(new Post());
         model.addAttribute("tags", tagRepository.findAll());
         return "/styleyourevent/styleyourevent";
     }
