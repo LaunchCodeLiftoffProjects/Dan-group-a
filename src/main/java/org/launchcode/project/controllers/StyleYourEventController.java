@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("styleyourevent")
 public class StyleYourEventController {
 
     private static List<Post> posts = new ArrayList<>();
@@ -32,15 +31,15 @@ public class StyleYourEventController {
         model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
         model.addAttribute("tags", tagRepository.findAll());
-        return "styleyourevent";
+        return "/styleyourevent/styleyourevent";
     }
 
-    @PostMapping("post")
+    @PostMapping("styleyourevent/post")
     public String processPostEventForm(@ModelAttribute @Valid Post newPost,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
-            return "post";
+            return "/styleyourevent/post";
         }
 
         postRepository.save(newPost);
