@@ -27,7 +27,7 @@ public class StyleYourEventController {
     @Autowired
     private PostRepository postRepository;
 
-    @GetMapping
+    @GetMapping("styleyourevent")
     public String displayStyleYourEventForm(Model model){
         model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
@@ -40,7 +40,7 @@ public class StyleYourEventController {
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
-            return "styleyourevent/post";
+            return "post";
         }
 
         postRepository.save(newPost);

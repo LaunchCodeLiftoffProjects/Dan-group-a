@@ -9,7 +9,7 @@ import java.util.List;
 public class User extends AbstractEntity{
 
     @OneToMany(mappedBy = "user")
-    private final List<Post>posts = new ArrayList<>();
+    private final List<Post> posts = new ArrayList<>();
 
     public void User(){}
 
