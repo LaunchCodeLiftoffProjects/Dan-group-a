@@ -3,13 +3,16 @@
 <head th:replace="fragments :: head"></head>
 
 <div th:replace="fragments :: page-header"></div>
-</head>
+
 <body>
 <div class="container body-content">
-    <title>Style Your Event</title>
-
-<h1>Style Your Event</h1>
-<h3>Lets get you styled!</h3>
+    <h3>Style Your Event</h3>
+    <h1>Lets get you styled!</h1>
+    <ul>
+        <li th:each="tag : ${tags}">
+            <a th:href="@{'/view/' + ${tag.id}}" th:text="${tag.name}"></a>
+        </li>
+    </ul>
 <form method="post" style="...max-width:600px;">
     <div class="form-group">
         <p>What type of event is it?</p>
