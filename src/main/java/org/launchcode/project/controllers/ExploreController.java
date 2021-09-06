@@ -40,7 +40,8 @@ public class ExploreController {
             model.addAttribute("title", "Invalid Post Id: " + postId);
         } else {
             Post post = result.get();
-            model.addAttribute("title", post.getPostDetails());
+            model.addAttribute("User", post.getUser());
+            model.addAttribute("title", post.getName());
             model.addAttribute("post", post);
             model.addAttribute("tags", post.getTags());
         }
