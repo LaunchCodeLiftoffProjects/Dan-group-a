@@ -28,8 +28,6 @@ public class StyleYourEventController {
 
     private static List<Post> posts = new ArrayList<>();
 
-    @Autowired
-    private TagRepository tagRepository;
 
     @GetMapping
     public String displayAllEvents(@RequestParam(required=false) Integer categoryId, Model model) {
