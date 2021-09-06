@@ -12,17 +12,5 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/explore")
-    public String explore() {
-
-        return "explore";
-    }
-
-    @GetMapping("/Home")
-    public String Home(){
-
-        return "Home";
-
-    }
 
 }
