@@ -23,10 +23,8 @@ public class ExploreController {
     @Autowired
     private UserRepository userRepository;
 
-    private static
-
     @GetMapping("/explore")
-    public String explore() {
+    private String explore() {
 
         return "explore";
     }
