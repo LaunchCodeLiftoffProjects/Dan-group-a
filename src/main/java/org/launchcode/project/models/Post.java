@@ -1,13 +1,7 @@
 package org.launchcode.project.models;
-
-
-
 import org.launchcode.project.data.TagRepository;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,31 +13,39 @@ import java.util.List;
 public class Post extends AbstractEntity {
 
     @Size(max=500, message = "Type of Event too long!")
-    private String typeOfEvent;
+    @NotNull
+    private String name;
 
+    @OneToOne(cascade = CascadeType.ALL)
     @Valid
     @NotNull
     private PostDetails postDetails;
 
-    @ManyToOne
-    @NotNull(message="Tag is required")
-    private Tag tag;
+    @ManyToMany
+    private final List<Tag> tags = new ArrayList<>();
 
-    public Post(String typeOfEvent, PostDetails postDetails) {
-        this.typeOfEvent = typeOfEvent;
-        this.postDetails = postDetails;
+    public Post(String name) {
+        this.name = name;
     }
 
     public Post(){}
 
-    public String getTypeOfEvent(){return typeOfEvent;}
+    public String getName(){ return name;}
 
-    public void setTypeOfEvent(String typeOfEvent){ this.typeOfEvent = typeOfEvent;}
+    public void setName(String name){ this.name = name;}
 
     public PostDetails getPostDetails(){ return postDetails;}
 
     public void setPostDetails(PostDetails postDetails){ this.postDetails = postDetails;}
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
+    }
+
     @Override
-    public String toString(){ return typeOfEvent;}
+    public String toString(){ return name;}
 }
