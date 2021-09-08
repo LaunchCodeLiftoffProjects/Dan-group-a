@@ -1,6 +1,7 @@
 package org.launchcode.project.controllers;
 import org.launchcode.project.data.PostRepository;
 import org.launchcode.project.data.TagRepository;
+import org.launchcode.project.data.UserRepository;
 import org.launchcode.project.models.Post;
 import org.launchcode.project.models.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class StyleYourEventController {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private TagRepository tagRepository;
@@ -45,20 +49,20 @@ public class StyleYourEventController {
         return "styleyourevent/index";
     }
 
-    @GetMapping("styleyourevent/post")
+    @GetMapping("styleyourevent/create")
     public String displayCreatePostForm(Model model) {
         model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
         model.addAttribute("tags", tagRepository.findAll());
-        return "styleyourevent/post";
+        return "styleyourevent/create";
     }
 
-    @PostMapping("styleyourevent/post")
+    @PostMapping("styleyourevent/create")
     public String processCreatePostForm(@ModelAttribute @Valid Post newPost,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
-            return "styleyourevent/post";
+            return "styleyourevent/create";
         }
 
         postRepository.save(newPost);
