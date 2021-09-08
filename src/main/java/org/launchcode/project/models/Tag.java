@@ -13,10 +13,10 @@ public class Tag extends AbstractEntity{
     @Size(min = 3)
     private String name;
 
-    @OneToMany(mappedBy = "tag")
+    @ManyToMany(mappedBy = "tags")
     private final List<Post> posts = new ArrayList<>();
 
-    public Tag(@Size(min = 3, message = "Name must be at least 3 characters long") String name) {
+    public Tag(String name) {
         this.name = name;
     }
 
@@ -30,8 +30,4 @@ public class Tag extends AbstractEntity{
 
     public List<Post> getPosts() {
         return posts; }
-
-    @Override
-    public String toString(){return name;}
-
 }
