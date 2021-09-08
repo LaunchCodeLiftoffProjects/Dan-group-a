@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+<div th:replace="fragments :: page-header"></div>
+<body>
+<link th:href="@{/styles/styles.css}" rel="stylesheet" />
+    <h3>Style Your Event</h3>
+    <h1>Lets get you styled!</h1>
+</head>
+    <div>
+        <h3>Add tags below to help describe your event and get advice</h3>
+    </div>
+    <form method="post">
+        <div class="form-group">
+            <label>Event Name
+                <input th:field="${post.name}" class="form-control">
+            </label>
+            <p class="error" th:errors="${post.name}"></p>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label>Tags-->
+<!--                <select th:field="${post.name}">-->
+<!--                    <option th:each="tag : ${tags}"-->
+<!--                            th:value="${tag.id}"-->
+<!--                            th:text="${tag.name}"-->
+<!--                    ></option>-->
+<!--                </select>-->
+<!--                <p class="error" th:errors="${post.tag}"></p>-->
+<!--            </label>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label>Description-->
+<!--                <input th:field="${post.postDetails.description}" class="form-control">-->
+<!--            </label>-->
+<!--            <p class="error" th:errors="${post.postDetails.description}"></p>-->
+<!--        </div>-->
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-success">
+        </div>
+
+    </form>
+
+</body>
+</html>

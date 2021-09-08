@@ -42,23 +42,23 @@ public class StyleYourEventController {
             }
         }
 
-        return "styleyourevent/index";
+        return "styleyourevent";
     }
 
-    @GetMapping("styleyourevent/post")
+    @GetMapping("styleyourevent/create")
     public String displayCreatePostForm(Model model) {
         model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
         model.addAttribute("tags", tagRepository.findAll());
-        return "styleyourevent/post";
+        return "styleyourevent/create";
     }
 
-    @PostMapping("styleyourevent/post")
+    @PostMapping("styleyourevent/create")
     public String processCreatePostForm(@ModelAttribute @Valid Post newPost,
                                          Errors errors, Model model) {
         if(errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
-            return "styleyourevent/post";
+            return "styleyourevent/create";
         }
 
         postRepository.save(newPost);

@@ -30,4 +30,10 @@ public class Tag extends AbstractEntity{
 
     public List<Post> getPosts() {
         return posts; }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }
