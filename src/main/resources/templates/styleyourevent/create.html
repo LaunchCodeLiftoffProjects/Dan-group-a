@@ -1,43 +1,59 @@
 <!DOCTYPE html>
-
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!--<link th:href="@{/styles/styles.css}" rel="stylesheet" />-->
 
 <head th:replace="fragments :: head"></head>
+<body class="container">
 <div th:replace="fragments :: page-header"></div>
-<body>
-<link th:href="@{/styles/styles.css}" rel="stylesheet" />
-    <h3>Style Your Event</h3>
-    <h1>Lets get you styled!</h1>
+<h3>Style Your Event</h3>
+<h1>Lets get you styled!</h1>
+
 </head>
     <div>
         <h3>Add tags below to help describe your event and get advice</h3>
     </div>
-    <form method="post">
+    <form id="searchForm"> style="...max-width:600px;">
+
+<form method="post" style="...max-width:600px;">
+    <div class="form-group">
+        <input type="hidden" th:field="${post.name}" class="form-control">
+        <label th:for="event">1. What type of event is it?</label>
+            <p>Example Tags</p>
+        <button>Job Interview</button>
+        <button>Wedding</button>
+        <button>Family Dinner</button>
+        <button>Birthday Party</button>
+        <button>Date</button>
+        </label>
+        <script>
+            window.addEventListener("load",function(){
+            });
+        </script>
+    </div>
+    <div class="form-group">
+        <label>2. What type of outfit or clothing?
+            <input type="text" name="postEvent" class="form-control">
+            <p>Example Tags</p>
+            <button>Dress</button>
+            <button>Suit</button>
+            <button>Jacket</button>
+            <button>Shoes</button>
+            <button>Jewelry</button>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>3. Add your own tags for more description?
+            <input type="text" name="postEvent" class="form-control">
+            <p>Example Tags</p>
+            <button>Family Day at the Science Center</button>
+            <button>Do These Shoes Go With This Suit</button>
+            <button>Date STL in July at the Zoo</button>
+        </label>
+    </div>
+    <img th:src="@{/images/outfitwithhandbag.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
+<!--    <button type="submit"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>-->
         <div class="form-group">
-            <label>Event Name
-                <input th:field="${post.name}" class="form-control">
-            </label>
-            <p class="error" th:errors="${post.name}"></p>
-        </div>
-<!--        <div class="form-group">-->
-<!--            <label>Tags-->
-<!--                <select th:field="${post.name}">-->
-<!--                    <option th:each="tag : ${tags}"-->
-<!--                            th:value="${tag.id}"-->
-<!--                            th:text="${tag.name}"-->
-<!--                    ></option>-->
-<!--                </select>-->
-<!--                <p class="error" th:errors="${post.tag}"></p>-->
-<!--            </label>-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <label>Description-->
-<!--                <input th:field="${post.postDetails.description}" class="form-control">-->
-<!--            </label>-->
-<!--            <p class="error" th:errors="${post.postDetails.description}"></p>-->
-<!--        </div>-->
-        <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-success">
+            <button input type="submit" value="Create" class="btn btn-success"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>
         </div>
 
     </form>
