@@ -12,13 +12,13 @@
     <div>
         <h3>Add tags below to help describe your event and get advice</h3>
     </div>
-    <form id="searchForm"> style="...max-width:600px;">
+<!--    <form id="searchForm"> style="...max-width:600px;">-->
 
 <form method="post" style="...max-width:600px;">
     <div class="form-group">
-        <input type="hidden" th:field="${post.name}" class="form-control">
-        <label th:for="event">1. What type of event is it?</label>
-            <p>Example Tags</p>
+        <label>1. What type of event is it?
+            <input th:field="${post.name}" class="form-control">
+        <p>Example Tags</p>
         <button>Job Interview</button>
         <button>Wedding</button>
         <button>Family Dinner</button>
@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label>2. What type of outfit or clothing?
-            <input type="text" name="postEvent" class="form-control">
+            <input th:field="${post.postDetails}" class="form-control">
             <p>Example Tags</p>
             <button>Dress</button>
             <button>Suit</button>
@@ -40,20 +40,24 @@
             <button>Shoes</button>
             <button>Jewelry</button>
         </label>
+        <script>
+            window.addEventListener("load",function(){
+            });
+        </script>
     </div>
     <div class="form-group">
         <label>3. Add your own tags for more description?
-            <input type="text" name="postEvent" class="form-control">
+            <input type="text" name="postAdditionalDescription" class="form-control">
             <p>Example Tags</p>
             <button>Family Day at the Science Center</button>
             <button>Do These Shoes Go With This Suit</button>
             <button>Date STL in July at the Zoo</button>
         </label>
     </div>
-    <img th:src="@{/images/outfitwithhandbag.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
+<!--    <img th:src="@{/images/outfitwithhandbag.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">-->
 <!--    <button type="submit"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>-->
         <div class="form-group">
-            <button input type="submit" value="Create" class="btn btn-success"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>
+            <button input type="submit" value="Create" class="btn btn-success">Storm It!</button>
         </div>
 
     </form>
