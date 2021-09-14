@@ -1,5 +1,6 @@
 package org.launchcode.project.controllers;
 
+import org.launchcode.project.models.stormers.Posts;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping("stormers")
 public class StormersController {
 
-    private static List<String> posts = new ArrayList<>();
+    private static List<Posts> posts = new ArrayList<>();
 
     @GetMapping("index")
     public String Stormers(Model model){
@@ -29,8 +30,8 @@ public class StormersController {
     }
 
     @PostMapping("form")
-    public String processStormersForm(@RequestParam String formsForPosts){
-        posts.add(formsForPosts);
+    public String processStormersForm(@RequestParam String formName, @RequestParam String formDescription, @RequestParam String formCategory ){
+        posts.add(new Posts(formName, formDescription, formCategory));
         return "redirect:index";
     }
 
