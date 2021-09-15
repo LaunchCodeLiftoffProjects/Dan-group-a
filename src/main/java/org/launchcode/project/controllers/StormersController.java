@@ -24,7 +24,7 @@ public class StormersController {
     }
 
     @GetMapping("form")
-    public String displayStormersForm(){
+    public String createStormersForm(){
 
         return "stormers/form";
     }
@@ -33,6 +33,12 @@ public class StormersController {
     public String processStormersForm(@RequestParam String formName, @RequestParam String formDescription, @RequestParam String formCategory ){
         posts.add(new Posts(formName, formDescription, formCategory));
         return "redirect:index";
+    }
+
+    @GetMapping("posts")
+    public String displayStormersPost(){
+
+        return "stormers/posts";
     }
 
 

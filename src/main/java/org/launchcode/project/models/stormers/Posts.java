@@ -2,9 +2,13 @@ package org.launchcode.project.models.stormers;
 
 public class Posts {
 
+    private int id;
+
+
     private String name;
     private String description;
     private String postCategory;
+
 
     public Posts(String name, String description, String postCategory) {
         this.name = name;
@@ -35,4 +39,11 @@ public class Posts {
     public void setPostCategory(String postCategory) {
         this.postCategory = postCategory;
     }
+    @Override
+    public String toString() {
+        return name;
+    }
+
+
+
 }

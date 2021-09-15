@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Stormers</title>
+</head>
+<body>
+<div style="display:grid;grid-template-columns:auto auto auto;grid-template-rows:auto auto;grid-row-gap:100px;margin-left:300px;">
+    <p th:text="${posts.name}">Post</p>
+    <p th:text="${posts.description}">Post</p>
+</div>
+</body>
+</html>
