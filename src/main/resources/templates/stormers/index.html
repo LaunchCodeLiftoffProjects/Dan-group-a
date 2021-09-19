@@ -6,11 +6,6 @@
 
     <link rel="stylesheet" th:href="@{/styles/stormer.css}" />
 
-    <style>
- h2 {
-    color: pink;
-    }
-</style>
 
     <div th:replace="fragments :: page-header"></div>
 </head>
@@ -34,7 +29,7 @@
 </div>
 
 <div style="display:grid;grid-template-columns:auto auto auto;grid-template-rows:auto auto;grid-row-gap:100px;margin-left:300px;">
-    <div th:each = "post : ${posts}"><a href="stormers/posts.html" th:text="${post.name}"></a></div>
+    <div th:each = "post : ${posts}"><a href="/stormers/view" th:text="${post.name}"></a></div>
 
 </div>
 </body>

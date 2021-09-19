@@ -2,7 +2,9 @@ package org.launchcode.project.models.stormers;
 
 public class Posts {
 
+
     private int id;
+    private static int nextId = 1;
 
 
     private String name;
@@ -14,6 +16,12 @@ public class Posts {
         this.name = name;
         this.description = description;
         this.postCategory = postCategory;
+        this.id=nextId;
+        nextId++;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

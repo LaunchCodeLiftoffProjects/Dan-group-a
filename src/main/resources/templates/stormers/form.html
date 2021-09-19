@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
+<head th:replace="fragments :: head">
     <meta charset="UTF-8"/>
-    <title>Hello</title>
+    <title>Form</title>
+    <div th:replace="fragments :: page-header"></div>
 </head>
 <body>
    <div>
-       <form method="post" >
-           <label for = "formCategory">Category</label>
-           <input type="text" id="formCategory" name="formCategory"><br>
-           <label for="formName">Event Title</label>
-           <input type="text" id="formName" name="formName"><br>
-           <textarea name="formDescription" id="description" placeholder="Type your description here.." rows="4" cols="50"></textarea><br>
+       <form method="post">
+           <label for = "postCategory">Category</label>
+           <input type="text" id="postCategory" name="postCategory"><br>
+           <label for="name">Event Title</label>
+           <input type="text" id="name" name="name"><br>
+           <textarea name="description" id="description" placeholder="Type your description here.." rows="4" cols="50"></textarea><br>
            <input type="submit" value="Submit">
        </form>
    </div>

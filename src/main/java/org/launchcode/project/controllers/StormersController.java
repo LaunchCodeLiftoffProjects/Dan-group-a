@@ -3,10 +3,7 @@ package org.launchcode.project.controllers;
 import org.launchcode.project.models.stormers.Posts;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +27,13 @@ public class StormersController {
     }
 
     @PostMapping("form")
-    public String processStormersForm(@RequestParam String formName, @RequestParam String formDescription, @RequestParam String formCategory ){
-        posts.add(new Posts(formName, formDescription, formCategory));
+    public String processStormersForm(@ModelAttribute Posts newPost){
+        posts.add(newPost);
         return "redirect:index";
     }
 
-    @GetMapping("posts")
-    public String displayStormersPost(){
+    @GetMapping("view")
+    public String displayStormersPost(Model model, @ModelAttribute Posts post){
 
         return "stormers/posts";
     }
