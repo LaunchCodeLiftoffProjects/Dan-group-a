@@ -1,23 +1,29 @@
-package org.launchcode.project.models.stormers;
+package org.launchcode.project.models;
 
-public class Posts {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class StormersPosts {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
-
 
     private String name;
     private String description;
     private String postCategory;
 
 
-    public Posts(String name, String description, String postCategory) {
+    public StormersPosts(String name, String description, String postCategory) {
         this.name = name;
         this.description = description;
         this.postCategory = postCategory;
-        this.id=nextId;
-        nextId++;
+
+    }
+
+    public StormersPosts() {
     }
 
     public int getId() {

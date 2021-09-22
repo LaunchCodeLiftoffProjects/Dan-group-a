@@ -1,22 +1,26 @@
 package org.launchcode.project.controllers;
 
-import org.launchcode.project.models.stormers.Posts;
+import org.launchcode.project.data.StormersPostRepository;
+import org.launchcode.project.models.StormersPosts;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("stormers")
 public class StormersController {
 
-    private static List<Posts> posts = new ArrayList<>();
+    @Autowired
+    private StormersPostRepository stormersPostRepository;
 
     @GetMapping("index")
     public String Stormers(Model model){
-            model.addAttribute("posts", posts);
+            model.addAttribute("posts", stormersPostRepository.findAll());
         return "stormers/index";
     }
 
@@ -27,15 +31,22 @@ public class StormersController {
     }
 
     @PostMapping("form")
-    public String processStormersForm(@ModelAttribute Posts newPost){
-        posts.add(newPost);
+    public String processStormersForm(@ModelAttribute StormersPosts newPost){
+        stormersPostRepository.save(newPost);
         return "redirect:index";
     }
 
-    @GetMapping("view")
-    public String displayStormersPost(Model model, @ModelAttribute Posts post){
+    @GetMapping("view/{id}")
+    public String displayStormersPost(Model model,@PathVariable int id){
 
-        return "stormers/posts";
+        Optional optStormersPost = stormersPostRepository.findById(id);
+        if(optStormersPost.isPresent()){
+            StormersPosts stormersPost = (StormersPosts) optStormersPost.get();
+            model.addAttribute("stormersPost", stormersPost);
+
+        }
+
+        return "stormers/view";
     }
 
 
