@@ -2,19 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
+<h1>Add Tag</h1>
 
 <header th:replace="fragments :: header"></header>
 
 <form method="post">
     <div class="form-group">
-        <input type="hidden" th:field="${postTag.post}">
-        <select th:field="${postTag.tag}">
-            <option th:each="tag : ${tags}"
-                    th:value="${tag.id}"
-                    th:text="${tag.name}"
-            ></option>
-        </select>
+        <label th:for="name">Tag Name</label>
+        <input class="form-control" th:field="${tag.name}">
+<!--        <span th:errors="${tag.name}" class="error"></span>-->
     </div>
+
+    <div class="form-group">
+        <label th:for="description">Tag Description</label>
+        <input class="form-control" th:field="${tag.description}" />
+<!--        <span th:errors="${tag.description}" class="error"></span>-->
+    </div>
+
     <input type="submit" class="btn btn-success" value="Add Tag">
 </form>
 

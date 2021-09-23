@@ -1,6 +1,7 @@
 package org.launchcode.project.models;
 import javax.persistence.*;
 
+
 import java.util.Objects;
 
 @MappedSuperclass

@@ -1,94 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
-<head th:replace="fragments :: head"></head>
-<body class="container">
-
+<html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+</head>
 
 
 <div th:replace="fragments :: page-header"></div>
+<body>
+<p th:unless="${posts} and ${posts.size()}">no posts!</p>
 
 <div class="container body-content">
-  
-    <h3>Style Your Event</h3>
-    <h1>Lets get you styled!</h1>
-
-    <table class="table table-striped">
-       <thead>
-        <tr>
-            <th>Event Name</th>
-        </tr>
-       </thead>
-       <tr th:each="post : ${posts}">
-            <td><a th:href="'/styleyourevent/' + ${tag.id}}" th:text="${tag.name}"></tda>
+    <h2>Posts</h2>
+    <ul>
+        <li th:each="post : ${posts}">
+            <a th:href="@{'/styleyourevent/view/' + ${post.id}}" th:text="${post.name}"></a>
         </li>
     </ul>
+    <a th:href="@{'/styleyourevent/create'}">Add a Post</a>
 
-<div class="StyleYourEvent" align="center">
-    <h2>1. What type of event is it?</h2>
-    <button>Job Interview</button>
-    <button>Wedding</button>
-    <button>Family Dinner</button>
-    <button>Birthday Party</button>
-    <button>Date</button>
 </div>
-<div class="Outfit" align="center">
-    <h2>1. What type of outfit?</h2>
-    <button>Dress</button>
-    <button>Suit</button>
-    <button>Jacket</button>
-    <button>Shoes</button>
-    <button>Jewelry</button>
-</div>
-<div class="Personalize" align="center">
-    <h2>3. Add your own tags for more description?</h2>
-    <h2>Examples:</h2>
-    <button>Family Day at the Science Center</button>
-    <button>Do These Shoes Go With This Suit</button>
-    <button>Date STL in July at the Zoo</button>
-</div>
-<img th:src="@{/images/outfitwithhandbag.jpg}" style="border: 5px dashed blue; border-radius: 5px; width: 600px; height: 400px;">
-<button type="submit"><img th:src="@{/images/tornadopostbutton.jpg}">Storm It!</button>
 
-
-<nav th:replace="fragments :: page-header"></nav>
-   <p><h1>Lets get you styled!</h1></p>
-<!--   <td th:text="${post.event}"></td>-->
-
-<form method="post" style="...max-width:600px;">
-    <div class="form-group">
-        <label th:for="event">1. What type of event is it?</label>
-<!--        <input class="form-control" th:field="${post.event}" />-->
-<!--        <span th:errors="${post.event}" class="error"></span>-->
-            <p>Example Tags</p>
-            <button>Job Interview</button>
-            <button>Wedding</button>
-            <button>Family Dinner</button>
-            <button>Birthday Party</button>
-            <button>Date</button>
-        </label>
-    </div>
-    <div class="form-group">
-        <label>2. What type of outfit or clothing?
-            <input type="text" name="postEvent" class="form-control">
-            <p>Example Tags</p>
-            <button>Dress</button>
-            <button>Suit</button>
-            <button>Jacket</button>
-            <button>Shoes</button>
-            <button>Jewelry</button>
-        </label>
-    </div>
-    <div class="form-group">
-        <label>3. Add your own tags for more description?
-            <input type="text" name="postEvent" class="form-control">
-            <p>Example Tags</p>
-            <button>Family Day at the Science Center</button>
-            <button>Do These Shoes Go With This Suit</button>
-            <button>Date STL in July at the Zoo</button>
-        </label>
-    </div>
-</form>
 </body>
 </html>

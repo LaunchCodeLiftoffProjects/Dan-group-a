@@ -1,10 +1,7 @@
 package org.launchcode.project.models;
-import org.launchcode.project.data.TagRepository;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,40 +9,36 @@ import java.util.List;
 @Entity
 public class Post extends AbstractEntity {
 
-    @Size(max=500, message = "Type of Event too long!")
-    @NotNull
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @Valid
-    @NotNull
-    private PostDetails postDetails;
-
     @ManyToMany
-    private final List<Tag> tags = new ArrayList<>();
-
-    public Post(String name) {
-        this.name = name;
-    }
+    private final List<Tag>tags = new ArrayList<>();
 
     public Post(){}
 
-    public String getName(){ return name;}
+    public Post(String name){
+        this.name = name;
+    }
 
-    public void setName(String name){ this.name = name;}
 
-    public PostDetails getPostDetails(){ return postDetails;}
+    public String getName() {
+        return name;
+    }
 
-    public void setPostDetails(PostDetails postDetails){ this.postDetails = postDetails;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public List<Tag> getTags() {
         return tags;
     }
 
-    public void addTag(Tag tag) {
-        this.tags.add(tag);
-    }
+    public void addTag(Tag tag){ this.tags.add(tag);}
 
     @Override
-    public String toString(){ return name;}
+    public String toString() {
+        return name;
+    }
 }
