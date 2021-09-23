@@ -2,6 +2,8 @@ package org.launchcode.project.controllers;
 
 import org.launchcode.project.data.PostRepository;
 import org.launchcode.project.data.TagRepository;
+import org.launchcode.project.models.Post;
+import org.launchcode.project.models.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/styleyourevent")
@@ -28,26 +32,45 @@ public class StyleYourEventController {
         return "styleyourevent/index";
     }
 
-    @GetMapping("create")
+    @GetMapping("styleyourevent/create")
     public String displayCreatePostForm(Model model) {
+        model.addAttribute("title", "Add Post");
         model.addAttribute(new Post());
+        model.addAttribute("posts", postRepository.findAll());
+        model.addAttribute("tags", tagRepository.findAll());
+
         return "styleyourevent/create";
     }
 
-    @PostMapping(value = "styleyourevent/create")
-    public String processCreatePostForm(@ModelAttribute @Valid Post newPost,
-                                        Errors errors, Model model) {
+    @PostMapping("styleyourevent/create")
+    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Tag newTag,
+                                        Errors errors, Model model, @RequestParam int postId, @RequestParam List<Integer> tags) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
-            model.addAttribute(new Post());
             return "styleyourevent/create";
+        }else {
+            model.addAttribute("title", "Create Post");
+            Optional<Post> result = postRepository.findById(postId);
+            Iterable<Tag> tagResult = tagRepository.findAllById(tags);
+            if (result.isEmpty()) {
+                model.addAttribute("title", "Invalid Post ID: " + postId);
+            } else {
+                Post post = result.get();
+                newPost.setPost(post);
+                model.addAttribute("title", "Posts in tag: " + post.getName());
+                model.addAttribute("posts", post.getTags());
+            }
+                newPost.setTags((List<Tag>) tagResult);
+
+            postRepository.save(newPost);
+            return "redirect:";
+
         }
 
-        postRepository.save(newPost);
-        return "redirect:";
+
     }
 
-    @PostMapping(value = "styleyourevent/add-tag")
+    @PostMapping("styleyourevent/add-tag")
     public String processAddTagForm(@ModelAttribute @Valid Tag newTag,
                                     Errors errors, Model model) {
 
