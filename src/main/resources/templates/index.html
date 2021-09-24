@@ -12,18 +12,19 @@
 <body class="body">
 <div class="indent">
     <title>Welcome to StyleStorm</title>
-    <h1>Welcome to Stylestorm!</h1>
     <h2>Existing User?</h2>
-    <style>
-    .login {
-        width: 300px;
-        padding: 20px;
-        font-size: 3em;
-        }
-    </style>
-    <button class="login">Login</button>
+<!--    <style>-->
+<!--    .login {-->
+<!--        width: 300px;-->
+<!--        padding: 20px;-->
+<!--        font-size: 3em;-->
+<!--        }-->
+<!--    </style>-->
+<!--    <button class="login">Login</button>-->
+    <a th:href="@{'/login'}">Login</a>
     <h2>Don't have an account?</h2>
-    <button class="login">Register</button>
+<!--    <button class="register">Register</button>-->
+    <a th:href="@{'/register'}">Register</a>
 
 </div>
 
