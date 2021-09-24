@@ -15,6 +15,9 @@
         background: url("images/stylestormlogo.png") no-repeat;
         border : none;
 }
+body {
+    padding-top: 70px;
+    }
 h1 {
     size: 200px;
     }
