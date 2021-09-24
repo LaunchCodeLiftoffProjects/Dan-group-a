@@ -42,47 +42,47 @@ public class StyleYourEventController {
         return "styleyourevent/create";
     }
 
-    @PostMapping("styleyourevent/create")
-    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Tag newTag,
-                                        Errors errors, Model model, @RequestParam int postId, @RequestParam List<Integer> tags) {
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Post");
-            return "styleyourevent/create";
-        }else {
-            model.addAttribute("title", "Create Post");
-            Optional<Post> result = postRepository.findById(postId);
-            Iterable<Tag> tagResult = tagRepository.findAllById(tags);
-            if (result.isEmpty()) {
-                model.addAttribute("title", "Invalid Post ID: " + postId);
-            } else {
-                Post post = result.get();
-                newPost.setPost(post);
-                model.addAttribute("title", "Posts in tag: " + post.getName());
-                model.addAttribute("posts", post.getTags());
-            }
-                newPost.setTags((List<Tag>) tagResult);
-
-            postRepository.save(newPost);
-            return "redirect:";
-
-        }
+//    @PostMapping("styleyourevent/create")
+//    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Tag newTag,
+//                                        Errors errors, Model model, @RequestParam int postId, @RequestParam List<Integer> tags) {
+//        if (errors.hasErrors()) {
+//            model.addAttribute("title", "Create Post");
+//            return "styleyourevent/create";
+//        }else {
+//            model.addAttribute("title", "Create Post");
+//            Optional<Post> result = postRepository.findById(postId);
+//            Iterable<Tag> tagResult = tagRepository.findAllById(tags);
+//            if (result.isEmpty()) {
+//                model.addAttribute("title", "Invalid Post ID: " + postId);
+//            } else {
+//                Post post = result.get();
+//                newPost.setPost(post);
+//                model.addAttribute("title", "Posts in tag: " + post.getName());
+//                model.addAttribute("posts", post.getTags());
+//            }
+//                newPost.setTags((List<Tag>) tagResult);
+//
+//            postRepository.save(newPost);
+//            return "redirect:";
+//
+//        }
 
 
     }
 
-    @PostMapping("styleyourevent/add-tag")
-    public String processAddTagForm(@ModelAttribute @Valid Tag newTag,
-                                    Errors errors, Model model) {
-
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Tag");
-            model.addAttribute(new Tag());
-            return "styleyourevent/add-tag";
-        }
-
-        tagRepository.save(newTag);
-        return "redirect:";
-    }
+//    @PostMapping("styleyourevent/add-tag")
+//    public String processAddTagForm(@ModelAttribute @Valid Tag newTag,
+//                                    Errors errors, Model model) {
+//
+//        if (errors.hasErrors()) {
+//            model.addAttribute("title", "Add Tag");
+//            model.addAttribute(new Tag());
+//            return "styleyourevent/add-tag";
+//        }
+//
+//        tagRepository.save(newTag);
+//        return "redirect:";
+//    }
 
 //    @GetMapping("view/{postId}")
 //    public String displayViewPosts(Model model, @PathVariable int postId) {
@@ -114,7 +114,7 @@ public class StyleYourEventController {
 //        return "redirect:";
 //    }
 
-}
+//}
 
 
 

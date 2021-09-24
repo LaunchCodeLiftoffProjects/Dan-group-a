@@ -11,9 +11,10 @@
   <title th:text="'StyleStorm' + ${title == null ? '' : ' :: ' + title}">StyleStorm</title>
 </head>
 
-<div th:fragment="page-header" class="navbar navbar-inverse">
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
+      <a th:href="@{/}" class="a.navbar-brand">TechJobs</a>
     <style>
     .logo {
         width: 102px;
