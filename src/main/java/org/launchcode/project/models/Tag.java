@@ -12,29 +12,30 @@ public class Tag extends AbstractEntity {
 
     @Size(min = 1, max = 25)
     @NotBlank
-    private String name;
-
-    public String description;
+    public String name;
 
     @ManyToMany(mappedBy = "tags")
-    private final List<Post> posts = new ArrayList<>();
+    public List<Post> posts = new ArrayList<>();
 
-    public Tag(String name) { this.name = name;  }
+    public String description;
 
     public Tag() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDisplayName() { return "#" + name + " ";}
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Post> getPosts() {
+    public List<Post> getPosts(){
         return posts;
     }
+
+   public void setPosts(List<Post> posts){
+        this.posts = posts;
+   }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
 }

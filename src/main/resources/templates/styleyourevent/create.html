@@ -17,10 +17,10 @@
     <div class="form-group">
         <label th:for="tags">Tags</label>
         <th:block th:each="tag : ${tags}">
-            <input type="checkbox" name="tags" th:value="${tag.id}">
+            <input type="button" name="tags" th:value="${tag.id}">
             <label th:text="${tag.name}"></label>
         </th:block>
-        <a th:href="@{'/styleyourevent/add-tag'}">Add Tags</a>
+        <a th:href="@{'/tags/add-tag'}">Add Tags</a>
     </div>
     <input type="submit" value="Create Post" />
 </form>

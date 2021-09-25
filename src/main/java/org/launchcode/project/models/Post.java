@@ -9,19 +9,23 @@ import java.util.List;
 @Entity
 public class Post extends AbstractEntity {
 
-    @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
-    private String name;
+    @ManyToOne
+    public User user;
 
     @ManyToMany
-    private final List<Tag>tags = new ArrayList<>();
+    public List<Tag>tags = new ArrayList<>();
+
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
+    public String name;
 
     public Post(){}
 
-    public Post(String name){
-        this.name = name;
+    public Post(User anUser, List<Tag> someTags){
+        super();
+        this.user = anUser;
+        this.tags = someTags;
     }
-
 
     public String getName() {
         return name;
@@ -31,14 +35,20 @@ public class Post extends AbstractEntity {
         this.name = name;
     }
 
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public List<Tag> getTags() {
         return tags;
     }
 
-    public void addTag(Tag tag){ this.tags.add(tag);}
-
-    @Override
-    public String toString() {
-        return name;
+    public void setTags(List<Tag> tags){
+        this.tags = tags;
     }
 }
