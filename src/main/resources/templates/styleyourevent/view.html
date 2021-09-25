@@ -7,14 +7,14 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
+<div>
     <p th:text="${'ID: ' + post.id}"></p>
     <p th:text="${'Name: ' + post.name}"></p>
     <p> Posts: <a th:href="@{'/styleyourevent/view/' + ${post.user.id}}" th:text="${post.user.name}"></a></p>
     <p> Tags:
         <ul>
             <li th:each="tag : ${post.tags}">
-            <a th:href="@{'/styleyourevent/view' + ${tag.id}}" th:text="${tag.name}"></a>
+            <a th:href="@{'/tags/view' + ${tag.id}}" th:text="${tag.name}"></a>
         </li>
     </ul>
     </p>

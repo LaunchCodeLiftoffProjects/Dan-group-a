@@ -26,13 +26,24 @@ public class TagController {
     public String processAddTagForm(@ModelAttribute @Valid Tag newTag,
                                       Errors errors, Model model) {
 
-//        if (errors.hasErrors()) {
-//            model.addAttribute("title", "Add Tag");
-//            model.addAttribute(new Tag());
-//            return "tags/add-tag";
-//        }
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Tag");
+            model.addAttribute(new Tag());
+            return "tags/add-tag";
+        }
         tagRepository.save(newTag);
         return "redirect:";
     }
 
+    @GetMapping("view/{tagId}")
+    public String displayViewTag (Model model, @PathVariable int tagId) {
+        Optional<Tag> optTag = tagRepository.findById(tagId);
+        if (optTag.isPresent()) {
+            Tag tag = (Tag) optTag.get();
+            model.addAttribute("tag", tag);
+            return "tags/view";
+        } else {
+            return "redirect:../";
+        }
+    }
 }

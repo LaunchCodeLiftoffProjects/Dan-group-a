@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+<h1 th:text="${'Tag: ' + tag.name}">Tag</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div>
+    <p th:text="${'Name: ' + tag.name}"></p>
+    <p th:text="${'Description: ' + tag.description}"></p>
+    <p> Posts:
+        <ul>
+            <li th:each="post : ${tag.posts}">
+                <a th:href="@{'/view/' + ${post.id}}" th:text="${post.name}"></a>
+            </li>
+        </ul>
+    </p>
+</div>

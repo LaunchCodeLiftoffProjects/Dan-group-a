@@ -65,17 +65,19 @@ public class StyleYourEventController {
 
         }
     }
+
+    @GetMapping("view/{postId}")
+    public String displayViewPost(Model model, @PathVariable int postId) {
+        Optional<Post> result = postRepository.findById(postId);
+        Post post = result.get();
+        model.addAttribute("post", post);
+        model.addAttribute("tag", post);
+        return "view";
+
+
+    }
 }
-//    @GetMapping("view/{postId}")
-//    public String displayViewPost(Model model, @PathVariable int postId) {
-//        Optional<Post> result = postRepository.findById(postId);
-//        Post post = result.get();
-//        model.addAttribute("post", post);
-//        model.addAttribute("tag", post);
-//        return "styleyourevent/view";
-//
-//
-//    }
+
 //    @GetMapping(value = "styleyourevent/delete")
 //    public String displayDeletePostForm(Model model) {
 //        model.addAttribute("title", "Delete Posts");
