@@ -40,63 +40,85 @@ public class StyleYourEventController {
 
     @GetMapping("create")
     public String displayCreatePostForm(Model model) {
-        model.addAttribute("title", "Create Post");
         model.addAttribute(new Post());
-        model.addAttribute("users", userRepository.findAll());
-        model.addAttribute("posts", postRepository.findAll());
-        model.addAttribute("tags", tagRepository.findAll());
         return "styleyourevent/create";
     }
 
     @PostMapping("create")
-    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Errors errors, Model model, @RequestParam int postId, @RequestParam List<Integer> tags) {
+    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
+            model.addAttribute(new Post());
             return "styleyourevent/create";
-        } else {
-            model.addAttribute("title", "Create Post");
-            Optional<Post> result = postRepository.findById(postId);
-            Iterable<Tag> tagResult = tagRepository.findAllById(tags);
-
-            newPost.setTags((List<Tag>) tagResult);
-
-            postRepository.save(newPost);
-            return "redirect:";
-
         }
+
+        postRepository.save(newPost);
+        return "redirect:";
+
     }
 
-    @GetMapping("view/{postId}")
-    public String displayViewPost(Model model, @PathVariable int postId) {
+    @GetMapping("styleyourevent/delete")
+    public String displayDeletePostForm(Model model) {
+        model.addAttribute("title", "Delete Posts");
+        model.addAttribute("posts", postRepository.findAll());
+        return "styleyourevent/delete";
+    }
+
+    @PostMapping("styleyourevent/delete")
+    public String processDeletePostsForm(@RequestParam(required = false) int[] postIds) {
+        if (postIds != null) {
+            for (int id : postIds) {
+                postRepository.deleteById(id);
+            }
+        }
+
+        return "redirect:";
+    }
+
+    // responds to /events/add-tag?eventId=13
+    @GetMapping("add-tag")
+    public String displayAddTagForm(@RequestParam Integer postId, Model model){
         Optional<Post> result = postRepository.findById(postId);
         Post post = result.get();
-        model.addAttribute("post", post);
-        model.addAttribute("tag", post);
-        return "view";
-
-
+        model.addAttribute("title", "Add Tag to: " + post.getName());
+        model.addAttribute("tags", tagRepository.findAll());
+        PostTagDTO postTag = new PostTagDTO();
+        postTag.setPost(post);
+        model.addAttribute("postTag", postTag);
+        return "events/add-tag.html";
     }
+
+    @PostMapping("add-tag")
+    public String processAddTagForm(@ModelAttribute @Valid PostTagDTO postTag,
+                                    Errors errors,
+                                    Model model){
+
+        if (!errors.hasErrors()) {
+            Post post = postTag.getPost();
+            Tag tag = postTag.getTag();
+            if (!post.getTags().contains(tag)){
+                post.addTag(tag);
+                postRepository.save(post);
+            }
+            return "redirect:detail?postId=" + post.getId();
+        }
+
+        return "redirect:add-tag";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
-//    @GetMapping(value = "styleyourevent/delete")
-//    public String displayDeletePostForm(Model model) {
-//        model.addAttribute("title", "Delete Posts");
-//        model.addAttribute("posts", postRepository.findAll());
-//        return "styleyourevent/delete";
-//    }
-//
-//    @PostMapping(value = "styleyourevent/delete")
-//    public String processDeletePostsForm(@RequestParam(required = false) int[] postIds) {
-//        if (postIds != null) {
-//            for (int id : postIds) {
-//                postRepository.deleteById(id);
-//            }
-//        }
-//
-//        return "redirect:";
-//    }
-
-//}
 
 
 

@@ -13,13 +13,13 @@ import java.util.List;
 @Entity
 public class User extends AbstractEntity{
 
-    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
     @NotNull
     private String username;
 
     @NotNull
     private String pwHash;
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
 

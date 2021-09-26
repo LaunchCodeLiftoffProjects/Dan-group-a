@@ -23,7 +23,7 @@ public class Post extends AbstractEntity {
 
     public Post(User anUser, List<Tag> someTags){
         super();
-        this.user = anUser;
+        this.user = user;
         this.tags = someTags;
     }
 
@@ -51,4 +51,15 @@ public class Post extends AbstractEntity {
     public void setTags(List<Tag> tags){
         this.tags = tags;
     }
+    public void addTag(Tag tag){
+        this.tags.add(tag);
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+
+
 }

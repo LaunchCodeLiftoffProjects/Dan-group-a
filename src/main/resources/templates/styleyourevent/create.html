@@ -10,19 +10,22 @@
 
 <form method="post" style="...max-width:600px;">
     <div class="form-group">
-        <label th:for="name">Post Name</label>
-        <input class="form-control" th:field="${post.name}" />
+        <label th:for="name">Post Name
+        <input th:field="${post.name}" class="form-control">
+        </label>
         <span th:errors="${post.name}" class="error"></span>
     </div>
     <div class="form-group">
         <label th:for="tags">Tags</label>
         <th:block th:each="tag : ${tags}">
-            <input type="button" name="tags" th:value="${tag.id}">
+            <input type="checkbox" name="tags" th:value="${tag.id}">
             <label th:text="${tag.name}"></label>
         </th:block>
         <a th:href="@{'/tags/add-tag'}">Add Tags</a>
     </div>
-    <input type="submit" value="Create Post" />
+
+        <input type="submit" value="Create Post" class="btn btn-success">
+
 </form>
 
 </body>
