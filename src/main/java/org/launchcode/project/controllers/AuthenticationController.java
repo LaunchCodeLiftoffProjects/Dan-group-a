@@ -81,7 +81,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "register_success";
+        return "register";
 
 
     }
