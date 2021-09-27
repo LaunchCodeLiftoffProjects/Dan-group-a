@@ -49,32 +49,16 @@ public class StyleYourEventController {
     }
 
     @PostMapping("create")
-    public String processCreatePostForm(@ModelAttribute @Valid Post newPost, Errors errors, Model model, @RequestParam int postId, @RequestParam List<Integer> tags) {
+    public String processAddPostForm(@ModelAttribute @Valid Post newPost,
+                                    Errors errors, Model model) {
+
         if (errors.hasErrors()) {
             model.addAttribute("title", "Create Post");
+            model.addAttribute(new Post());
             return "styleyourevent/create";
-        } else {
-            model.addAttribute("title", "Create Post");
-            Optional<Post> result = postRepository.findById(postId);
-            Iterable<Tag> tagResult = tagRepository.findAllById(tags);
-
-            newPost.setTags((List<Tag>) tagResult);
-
-            postRepository.save(newPost);
-            return "redirect:";
-
         }
-    }
-
-    @GetMapping("view/{postId}")
-    public String displayViewPost(Model model, @PathVariable int postId) {
-        Optional<Post> result = postRepository.findById(postId);
-        Post post = result.get();
-        model.addAttribute("post", post);
-        model.addAttribute("tag", post);
-        return "view";
-
-
+        postRepository.save(newPost);
+        return "redirect:";
     }
 }
 
