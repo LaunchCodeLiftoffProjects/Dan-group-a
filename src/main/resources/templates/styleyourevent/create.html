@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<div th:replace="fragments :: page-header"></div>
+
+<h2>Style Your Event</h2>
+<h1>Lets get you styled!</h1>
+
+<form method="post" style="...max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Post Name</label>
+        <input class="form-control" th:field="${post.name}" />
+        <span th:errors="${post.name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="tags">Tags</label>
+        <th:block th:each="tag : ${tags}">
+            <input type="button" name="tags" th:value="${tag.id}">
+            <label th:text="${tag.name}"></label>
+        </th:block>
+        <a th:href="@{'/tags/add-tag'}">Add Tags</a>
+    </div>
+    <input type="submit" value="Create Post" />
+</form>
+
+</body>
+</html>
