@@ -1,9 +1,9 @@
 package org.launchcode.project.controllers;
 
 import org.launchcode.project.data.UserRepository;
-import org.launchcode.project.models.DTO.LoginFormDTO;
-import org.launchcode.project.models.DTO.RegisterFormDTO;
 import org.launchcode.project.models.User;
+import org.launchcode.project.models.dto.LoginFormDTO;
+import org.launchcode.project.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

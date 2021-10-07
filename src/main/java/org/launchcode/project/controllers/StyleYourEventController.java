@@ -3,20 +3,17 @@ package org.launchcode.project.controllers;
 import org.launchcode.project.data.PostRepository;
 import org.launchcode.project.data.TagRepository;
 import org.launchcode.project.data.UserRepository;
-import org.launchcode.project.models.DTO.PostTagDTO;
 import org.launchcode.project.models.Post;
-import org.launchcode.project.models.Tag;
-import org.launchcode.project.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("styleyourevent")

@@ -1,4 +1,4 @@
-package org.launchcode.project.models.DTO;
+package org.launchcode.project.models.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
