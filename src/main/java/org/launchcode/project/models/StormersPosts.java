@@ -1,5 +1,7 @@
 package org.launchcode.project.models;
 
+import org.launchcode.project.data.FileUploadServlet;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,12 +16,14 @@ public class StormersPosts {
     private String name;
     private String description;
     private String postCategory;
+    private FileUploadServlet image;
 
 
-    public StormersPosts(String name, String description, String postCategory) {
+    public StormersPosts(String name, String description, String postCategory, FileUploadServlet image) {
         this.name = name;
         this.description = description;
         this.postCategory = postCategory;
+        this.image = image;
 
     }
 
@@ -48,6 +52,14 @@ public class StormersPosts {
 
     public String getPostCategory() {
         return postCategory;
+    }
+
+    public FileUploadServlet getImage() {
+        return image;
+    }
+
+    public void setImage(FileUploadServlet image) {
+        this.image = image;
     }
 
     public void setPostCategory(String postCategory) {

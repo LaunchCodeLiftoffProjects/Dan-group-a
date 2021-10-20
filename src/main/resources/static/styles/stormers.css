@@ -1,20 +1,5 @@
-.leftside {
-    float:left;
-    height: 200%;
-    width:35%;
+h1 {
+    color: violet;
+    text-align: center;
 }
 
-.h2-posts {
-    padding-top: 70px;
-    padding-right: 30px;
-    padding-bottom: 70px;
-    padding-left: 30px;
-
-
-}
-
-.h2-stylestorming {
-    padding: 300px;
-    color: green;
-
-}

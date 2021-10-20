@@ -7,7 +7,9 @@
 </head>
 <body>
    <div>
-       <form method="post">
+       <form method="post" action="fileuploadservlet" enctype="multipart/form-data">
+           <input type="file" name="file"/>
+           <input type="submit" value="Upload"/>
            <label for = "postCategory">Category</label>
            <input type="text" id="postCategory" name="postCategory"><br>
            <label for="name">Event Title</label>
