@@ -4,37 +4,36 @@
     <meta charset="UTF-8"/>
     <title>Stormers</title>
 
-    <link rel="stylesheet" type="text/css" th:href="@{styles/stormers.css}" />
 
     <div th:replace="fragments :: page-header"></div>
 
-    <style>
-     .h1 {
-         color: violet;
-         text-align: center;
-    }
+<!--    <style>-->
+<!--     .h1 {-->
+<!--         color: violet;-->
+<!--         text-align: center;-->
+<!--    }-->
 
-    .posts {
-    display:grid;
-    grid-template-columns:auto auto auto;
-    grid-template-rows:auto auto;
-    grid-row-gap:100px;
-    margin-left:300px;
-    padding: 25px 100px 75px 100px;
-    }
+<!--    .posts {-->
+<!--    display:grid;-->
+<!--    grid-template-columns:auto auto auto;-->
+<!--    grid-template-rows:auto auto;-->
+<!--    grid-row-gap:100px;-->
+<!--    margin-left:300px;-->
+<!--    padding: 25px 100px 75px 100px;-->
+<!--    }-->
 
-    .grid-items{
-    background-color: white;
-    border: 1px solid;
-    text-align: center;
-    }
+<!--    .grid-items{-->
+<!--    background-color: white;-->
+<!--    border: 1px solid;-->
+<!--    text-align: center;-->
+<!--    }-->
 
-    </style>
+<!--    </style>-->
 </head>
-<body>
+<body class ="container">
 <h1 class="h1">Stormers</h1>
 
-<div class="leftside">
+<div class="form-group">
     <form>
         <button type="submit" formaction="/stormers/form">Become A Stormer!</button>
     </form>
@@ -42,8 +41,8 @@
 </div>
 
 
-<div class="posts" >
-    <div class="grid-items" th:each = "post : ${posts}"><a th:href="@{'/stormers/view/' + ${post.id}}" th:text="${post.name}"></a></div>
+<div class="container" >
+    <div class="row" th:each = "post : ${posts}"><a th:href="@{'/stormers/view/' + ${post.id}}" th:text="${post.name}"></a></div>
 
 </div>
 </body>

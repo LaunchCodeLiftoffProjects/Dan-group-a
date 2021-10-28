@@ -81,7 +81,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "register";
+        return "register_success";//this should return to the homepage to login not register; "redirect:"
 
 
     }
@@ -122,6 +122,13 @@ public class AuthenticationController {
         setUserInSession(request.getSession(), theUser);
 
         return "redirect:";
+    }
+
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        request.getSession().invalidate();
+        return "redirect:/login";
     }
 
 

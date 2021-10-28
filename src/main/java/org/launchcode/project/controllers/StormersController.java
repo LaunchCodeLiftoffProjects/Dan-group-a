@@ -1,18 +1,18 @@
 package org.launchcode.project.controllers;
 
-import org.launchcode.project.data.FileUploadServlet;
+
+import org.launchcode.project.data.imagefunctionality.FileUploadUtil;
 import org.launchcode.project.data.StormersPostRepository;
 import org.launchcode.project.models.StormersPosts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -38,7 +38,16 @@ public class StormersController {
     }
 
     @PostMapping("form")
-    public String processStormersForm(@ModelAttribute StormersPosts newPost){
+    public String processStormersForm(@ModelAttribute StormersPosts newPost, @RequestParam("image")MultipartFile multipartFile) throws IOException {
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        newPost.setPhotos(fileName);
+        StormersPosts savedPost = stormersPostRepository.save(newPost);
+
+        String uploadDir = "newPost-photos/" + savedPost.getId();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
         stormersPostRepository.save(newPost);
         return "redirect:index";
     }
