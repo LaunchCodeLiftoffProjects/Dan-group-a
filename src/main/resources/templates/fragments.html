@@ -11,13 +11,7 @@
 <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>-->
 
   <title th:text="'StyleStorm' + ${title == null ? '' : ' :: ' + title}">StyleStorm</title>
-</head>
-
-<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a th:href="@{/}" class="a.navbar-brand"></a>
-    <style>
+  <style>
     .logo {
         width: 102px;
         height: 45px;
@@ -28,16 +22,29 @@
     .logo:hover {
         background: url("images/stylestormlogohover.png") no-repeat;
     }
+
+
 </style>
+</head>
+
+<div th:fragment="page-header">
+  <div class="container">
+
+<!--      <a th:href="@{/}" class="a.navbar-brand"></a>-->
+    <div style="position:absolute; top:8px; left:16px;">
+      <img th:src="@{/images/stylestormlogo.png}" width="100" alt="Logo">
+    </div>
+
+    <div style="text-align:center;font:20px Papyrus, fantasy;">
+        <a th:href="@{/stormers/index}" style="color:mediumpurple; padding:10px 70px 10px 200px;">Stormers</a>
+<!--        <li><a th:href="@{/index}">Home</a></li>-->
+        <a th:href="@{/styleyourevent}" style="color:mediumpurple; padding:10px;">Style Your Event</a>
 
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="logo"><a th:href="@{/}"></a></li>
-        <li><a th:href="@{/stormers/index}" >Stormers</a></li>
-        <li><a th:href="@{/index}">Home</a></li>
-        <li><a th:href="@{/styleyourevent}">Style Your Event</a></li>
-      </ul>
-    </div>
-  </div>
+
 </div>
+
+<!--class="nav navbar-nav"-->
+<!--class="navbar navbar-inverse navbar-fixed-top"-->
+
+</html>

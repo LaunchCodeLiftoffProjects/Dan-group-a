@@ -7,43 +7,57 @@
 
     <div th:replace="fragments :: page-header"></div>
 
-<!--    <style>-->
-<!--     .h1 {-->
-<!--         color: violet;-->
-<!--         text-align: center;-->
-<!--    }-->
+    <style>
+.h1 {
 
-<!--    .posts {-->
-<!--    display:grid;-->
-<!--    grid-template-columns:auto auto auto;-->
-<!--    grid-template-rows:auto auto;-->
-<!--    grid-row-gap:100px;-->
-<!--    margin-left:300px;-->
-<!--    padding: 25px 100px 75px 100px;-->
-<!--    }-->
+         text-align: center;
+         padding: 80px 70px 50px 315px;
+         font:55px Papyrus, fantasy;
+         color:black;
+    }
 
-<!--    .grid-items{-->
-<!--    background-color: white;-->
-<!--    border: 1px solid;-->
-<!--    text-align: center;-->
-<!--    }-->
+.posts {
+  display: grid;
+  grid-template-columns:  repeat( auto-fill, minmax( 200px, 1fr ) );
+  grid-auto-rows: 250px;
+  grid-template-rows: masonry;
+  grid-gap: 20px;
+  background-color: #fff;
+  color: white;
+  padding:80px 70px 50px 315px;
+  text-align:center;
 
-<!--    </style>-->
+    }
+
+
+.box {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 5px 7px 10px;
+  font-size: 150%;
+  grid-row-end: auto;
+  text-align:center;
+}
+
+    </style>
 </head>
-<body class ="container">
-<h1 class="h1">Stormers</h1>
+<body class ="container" style="background-color=lightgrey; margin:0; padding:0;">
+<h2 class="h1">Stormers</h2>
 
 <div class="form-group">
     <form>
-        <button type="submit" formaction="/stormers/form">Become A Stormer!</button>
+        <button type="submit" style="background-color:mediumpurple; color:white; font:16px Papyrus,fantasy; text-align:center; padding:10px; display:inline-block;border-radius:12px;" formaction="/stormers/form">Become A Stormer!</button>
     </form>
 
 </div>
 
 
-<div class="container" >
-    <div class="row" th:each = "post : ${posts}"><a th:href="@{'/stormers/view/' + ${post.id}}" th:text="${post.name}"></a></div>
+<div class="posts" >
+    <div class="box" th:each = "post : ${posts}"><a th:href="@{'/stormers/view/' + ${post.id}}" th:text="${post.name}"></a></div>
 
 </div>
+
+<footer style="text-align:center;font:16px Papyrus,fantasy;"> If you would like an image on your post, email it to bri39annat@gmail.com</footer>
 </body>
 </html>
