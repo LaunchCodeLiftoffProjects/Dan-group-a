@@ -1,4 +1,4 @@
-package org.launchcode.project.models.DTO;
+package org.launchcode.project.models.dto;
 
 public class RegisterFormDTO extends LoginFormDTO{
 

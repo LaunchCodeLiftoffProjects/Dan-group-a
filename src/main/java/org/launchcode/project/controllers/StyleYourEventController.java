@@ -3,7 +3,7 @@ package org.launchcode.project.controllers;
 import org.launchcode.project.data.PostRepository;
 import org.launchcode.project.data.TagRepository;
 import org.launchcode.project.data.UserRepository;
-import org.launchcode.project.models.DTO.PostTagDTO;
+import org.launchcode.project.models.dto.PostTagDTO;
 import org.launchcode.project.models.Post;
 import org.launchcode.project.models.Tag;
 import org.launchcode.project.models.User;

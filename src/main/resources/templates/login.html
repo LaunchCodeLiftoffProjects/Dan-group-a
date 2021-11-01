@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body class="container" style="background-color:lightgrey;">
 
-<header th:replace="fragments :: page-header"></header>
-
-<form method="post">
+<!--<header th:replace="fragments :: page-header"></header>-->
+<div style="position:absolute; top:8px; left:16px;">
+  <img th:src="@{/images/stylestormlogo.png}" width="170" alt="Logo">
+</div>
+<form method="post" style="text-align:center;padding:50px;">
   <div class="form-group">
-    <label th:for="username">Username
+    <label th:for="username" style="font:45px Papyrus, fantasy;color:black">Username
       <input class="form-control" th:field="${loginFormDTO.username}">
     </label>
     <p class="error" th:errors="${loginFormDTO.username}"></p>
   </div>
   <div class="form-group">
-    <label>Password
+    <label style="font:45px Papyrus, fantasy;color:black">Password
       <input class="form-control" th:field="${loginFormDTO.password}" type="password">
     </label>
     <p class="error" th:errors="${loginFormDTO.password}"></p>
   </div>
 
-  <input type="submit" class="btn btn-primary" value="Log In" />
+  <input type="submit" style="background-color:mediumpurple; color:white; font:16px Papyrus,fantasy; text-align:center; padding:15px; display:inline-block;border-radius:12px;" value="Log In" />
 </form>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
+<p style="font: 20px Papyrus, fantasy; color: black; text-align:center;">Don't have an account? <a href="/register" style="color:mediumpurple">Register for one.</a></p>
 
 </body>
 </html>

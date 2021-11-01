@@ -1,33 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
-<div th:replace="fragments :: page-header"></div>
+<head th:replace="fragments :: head">
 
-<body class="body">
+<!--    <div th:replace="fragments :: page-header"></div>-->
+    <style>
+  .container {
+  position: relative;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+.background{
+    background-color:purple;
+
+    }
+
+
+
+    </style>
+</head>
+
+
+
+<body style="background-color:lightgrey; margin:0; padding:0;">
+
+    <title>Welcome to StyleStorm</title>
+    <div style="position: relative;">
+        <img th:src="@{/images/purplecardigan.jpg}"  alt="Purple Cardigan" class="w-100" style="height:800px">
+        <div style="position:absolute; top:8px; left:16px;">
+                <img th:src="@{/images/stylestormlogo.png}" width="170" alt="Logo">
+        </div>
+        <div style="position:absolute; top:8px;right:8px;">
+            <form>
+                <button type="submit" style="background-color:mediumpurple; color:white; font:16px Papyrus,fantasy; text-align:center; padding:20px; display:inline-block;border-radius:12px;" formaction="/login">Sign In</button>
+            </form>
+        </div>
+        <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-size: 18px;">
+            <h2 style="font: 70px Papyrus,fantasy; color:black;">Don't Know What To Wear?</h2>
+            <h3 style="font: 30px Papyrus, fantasy; color: black"> <strong>Don't Have An Account? </strong>
+                <a th:href="@{'/register'}" style="color:mediumpurple"> Register</a>
+            </h3>
+        </div>
+
+    </div>
+
+
+    <div style="border:8px solid lightgrey;display:block;">
+
+        <p style="float:left;clear:right;font:30px Papyrus, fantasy;color:black; margin-right:60px;padding-top:150px;padding-left:75px;">Need ideas for costumes, interviews, weddings, etc?</p>
+            <img th:src="@{/images/weddingsuit.jpg}"  alt="Men two piece set" width="700" height="500" style="float:right;">
+
+
 <div>
-    <title>Welcome to StyleStorm</title>
-    <h1>Welcome to StyleStorm</h1>
-
-<link th:href="@{/styles/styles.css}" rel="stylesheet" />
-<body class="body">
-<div class="indent">
-    <title>Welcome to StyleStorm</title>
-    <h2>Existing User?</h2>
-<!--    <style>-->
-<!--    .login {-->
-<!--        width: 300px;-->
-<!--        padding: 20px;-->
-<!--        font-size: 3em;-->
-<!--        }-->
-<!--    </style>-->
-<!--    <button class="login">Login</button>-->
-    <a th:href="@{'/login'}">Login</a>
-    <h2>Don't have an account?</h2>
-<!--    <button class="register">Register</button>-->
-    <a th:href="@{'/register'}">Register</a>
-<!--    <h2><a th:href="@{'/users'}">List of Users</a></h2>-->
-
+      <p style="float:right;clear:both;font:30px Papyrus, fantasy;color:black;padding-top:1200; margin-left:100px;">Are you a fashion icon yourself? <br> Become a stormer so people can see your work!</p>
+          <img th:src="@{/images/mentwopiece.png}"  alt="Men two piece set" width="700" height="500" style="float:left;">
 </div>
+
+
+        <p style="float:right;clear:right;font:30px Papyrus, fantasy;color:black;"> Seek real life advice on what you can wear to your event!
+            <img th:src="@{/images/plusblack.jpg}"  alt="Men two piece set" width="700" height="600"></p>
+
+
+    </div>
+
+
+<!--    <div style="border:8px solid lightgrey;">-->
+<!--        <img th:src="@{/images/plusblack.jpg}"  alt="Men two piece set" width="700" height="500" style="display:block;">-->
+<!--    </div>-->
+<!--    style="float:right;clear:left"-->
+<!--    style="float:left;clear:both;"-->
+<!--    style="float:left;-->
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

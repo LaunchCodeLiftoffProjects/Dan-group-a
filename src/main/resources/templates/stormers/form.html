@@ -7,12 +7,19 @@
 </head>
 <body>
    <div>
-       <form method="post">
+       <form method="post" enctype="multipart/form-data">
            <label for = "postCategory">Category</label>
            <input type="text" id="postCategory" name="postCategory"><br>
            <label for="name">Event Title</label>
            <input type="text" id="name" name="name"><br>
            <textarea name="description" id="description" placeholder="Type your description here.." rows="4" cols="50"></textarea><br>
+
+           <div>
+
+               <label>Photos: </label>
+               <input type="file" name="image" accept="image/png, image/jpeg" />
+
+           </div>
            <input type="submit" value="Submit">
        </form>
    </div>
