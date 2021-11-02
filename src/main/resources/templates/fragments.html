@@ -22,6 +22,16 @@
     .logo:hover {
         background: url("images/stylestormlogohover.png") no-repeat;
     }
+    .anchor:link, a:visited {
+  background-color: mediumpurple;
+  color: white;
+  font:16px Papyrus,fantasy;
+  border-radius:12px;
+  padding:20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
 
 
 </style>
@@ -41,6 +51,10 @@
         <a th:href="@{/styleyourevent}" style="color:mediumpurple; padding:10px;">Style Your Event</a>
 
     </div>
+
+      <div style="position:absolute; top:8px; right:16px;">
+          <a class="anchor" href="/logout">Log out</a>
+      </div>
 
 </div>
 
