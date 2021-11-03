@@ -5,13 +5,47 @@
     <title>Stormers</title>
     <div th:replace="fragments :: page-header"></div>
 </head>
-<body>
-<div style="display:grid;grid-template-columns:auto auto auto;grid-template-rows:auto auto;grid-row-gap:100px;margin-left:300px;">
-    <p th:text="${stormersPost.name}"></p><br>
-    <p th:text="${stormersPost.description}"></p>
-    <img th:src="@{${stormersPost.getPhotosImagePath}}" />
+<style>
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 30%;
+  padding-top:500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+<!--th, td {-->
+<!--  padding: 15px;-->
+<!--}-->
+</style>
+<body style="background-color:lightgrey;">
+<!--<div>-->
+<!--    <img th:src="${/stormersPosts.getPhotos}" />-->
+<!--</div>-->
 
 
-</div>
+<table>
+    <tr class="table">
+        <th style="padding: 10px;"th:text="${stormersPost.name}">Event Name</th>
+    </tr>
+    <tr>
+        <th style="padding:15px;" th:text="${stormersPost.description}">Description</th>
+    </tr>
+
+
+</table>
+
+<!--<div style="display:grid;grid-template-columns:auto auto auto;grid-template-rows:auto auto;grid-row-gap:100px;margin-left:300px;">-->
+<!--    <p th:text="${stormersPost.name}"></p><br>-->
+<!--    <p th:text="${stormersPost.description}"></p>-->
+<!--    <img th:src="/@{${stormersPost.photosImagePath}}" />-->
+
+
+<!--</div>-->
 </body>
 </html>
